@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PW Students Union - The Original 45</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;0,900;1,900&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandDark: '#0a0a0a',      /* Pure deep black */
+                        brandLight: '#ffffff',     /* Main body white background */
+                        brandGray: '#f4f4f5',      /* Light flyer gray */
+                        brandRed: '#ff2134',       /* Red accent */
+                        brandYellow: '#facc15',    /* Yellow highlight */
+                        darkCard: '#121212',       /* Dark contrast elements */
+                    },
+                    fontFamily: {
+                        orbitron: ['Orbitron', 'sans-serif'],
+                        montserrat: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom scrollbar matching theme colors */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #ffffff;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ff2134;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #facc15;
+        }
+
+        /* Diagonal Stripe Background elements */
+        .diagonal-stripe-red {
+            background: repeating-linear-gradient(
+                -45deg,
+                rgba(255, 33, 52, 0.15),
+                rgba(255, 33, 52, 0.15) 10px,
+                transparent 10px,
+                transparent 20px
+            );
+        }
+
+        .diagonal-stripe-black {
+            background: repeating-linear-gradient(
+                -45deg,
+                rgba(0, 0, 0, 0.05),
+                rgba(0, 0, 0, 0.05) 10px,
+                transparent 10px,
+                transparent 20px
+            );
+        }
+
+        /* Light & Dark Dot Pattern from flyer */
+        .dots-grid-light {
+            background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1.5px, transparent 1.5px);
+            background-size: 20px 20px;
+        }
+        
+        .dots-grid-dark {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1.5px, transparent 1.5px);
+            background-size: 20px 20px;
+        }
+
+        /* Smooth border glow animations for placeholders */
+        .glow-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .glow-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(255, 33, 52, 0.15);
+            border-color: #ff2134;
+        }
+
+        .glow-card-yellow:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(250, 204, 21, 0.2);
+            border-color: #facc15;
+        }
+
+        /* Scanline simulation */
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+    </style>
+</head>
+<body class="bg-brandLight text-black font-montserrat antialiased selection:bg-brandRed selection:text-white overflow-x-hidden dots-grid-light">
+
+    <!-- HEADER / NAVIGATION (Deep High Contrast Black) -->
+    <header class="sticky top-0 z-50 bg-brandDark border-b-4 border-brandRed shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 py-3.5 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <!-- Red & White PW Rounded Logo Symbol -->
+                <div class="w-12 h-12 rounded-full border-2 border-brandRed bg-black flex items-center justify-center relative overflow-hidden group">
+                    <span class="font-orbitron font-extrabold text-xl tracking-tighter text-white">P<span class="text-brandRed">W</span></span>
+                </div>
+                <div>
+                    <h1 class="font-orbitron font-extrabold text-base tracking-wider text-white">PW STUDENTS UNION</h1>
+                    <p class="text-[10px] text-brandYellow font-black tracking-widest uppercase">THE ORIGINAL 45</p>
+                </div>
+            </div>
+
+            <!-- Header Quick Links -->
+            <nav class="hidden md:flex space-x-6 text-xs font-bold uppercase tracking-widest">
+                <a href="#features" class="text-white hover:text-brandRed transition-colors">Features</a>
+                <a href="#playground" class="text-white hover:text-brandYellow transition-colors">Interactive Zone</a>
+                <a href="#teams" class="text-white hover:text-brandRed transition-colors">Our Teams</a>
+                <a href="#roster" class="text-white hover:text-brandYellow transition-colors">Roster</a>
+            </nav>
+
+            <!-- Join Button with WhatsApp Icon -->
+            <a href="https://whatsapp.com/channel/0029VbCtHdPKrWQpmxJi8v3E" target="_blank" class="bg-brandRed hover:bg-brandRed/90 text-white font-black text-xs uppercase py-2.5 px-5 rounded-lg border-b-4 border-red-800 transition-all flex items-center gap-2">
+                <i class="fab fa-whatsapp text-sm"></i> Join Union
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION (High-Contrast Red, Yellow, & Dark Diagonal Split) -->
+    <section class="relative bg-brandDark text-white py-16 md:py-24 px-4 overflow-hidden border-b-8 border-brandYellow dots-grid-dark">
+        <!-- Floating Red Stripe Overlay to match Flyer design -->
+        <div class="absolute inset-0 diagonal-stripe-red opacity-20 z-0"></div>
+        
+        <div class="max-w-6xl mx-auto text-center relative z-10">
+            <!-- All India Brotherhood badge -->
+            <div class="inline-block mb-6">
+                <div class="bg-brandRed text-white text-xs font-black font-orbitron uppercase py-2 px-6 rounded-full tracking-widest border-2 border-white shadow-md">
+                    🤝 ALL INDIA BROTHERHOOD 🤝
+                </div>
+            </div>
+
+            <!-- Primary Header Typography matching Flyer exactly -->
+            <h1 class="font-orbitron font-extrabold text-5xl md:text-8xl tracking-tight leading-none">
+                PW <span class="text-brandRed">STUDENTS</span> 
+                <span class="text-brandYellow block mt-1">UNION</span>
+            </h1>
+
+            <div class="inline-block mt-4 bg-brandYellow text-black font-orbitron font-black text-xl md:text-2xl px-8 py-1.5 transform -skew-x-12 uppercase tracking-wider border-2 border-black">
+                THE ORIGINAL 45
+            </div>
+
+            <!-- The core 3-value slogan of the flyer -->
+            <div class="mt-8 max-w-3xl mx-auto bg-black/90 border-2 border-brandRed p-6 rounded-2xl">
+                <h3 class="text-brandYellow font-orbitron font-black text-xl uppercase tracking-widest">
+                    ONE <span class="text-white">UNION</span>. ONE <span class="text-brandRed">FAMILY</span>. ONE <span class="text-brandYellow">FIGHT</span>.
+                </h3>
+                <p class="text-gray-300 font-bold text-xs md:text-sm tracking-wide mt-2">
+                    TOGETHER WE LEARN, TOGETHER WE GROW, TOGETHER WE WIN.
+                </p>
+            </div>
+
+            <!-- QR Verification Panel from Flyer -->
+            <div class="mt-10 max-w-lg mx-auto bg-white text-black p-6 rounded-2xl border-4 border-brandRed shadow-2xl relative">
+                <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-brandRed text-white text-xs font-black px-4 py-1 uppercase rounded-full tracking-wider">
+                    Official Hub
+                </div>
+                
+                <div class="flex flex-col sm:flex-row items-center gap-6 justify-center mt-2">
+                    <!-- Dynamic QR generation -->
+                    <div class="relative bg-white p-2 rounded-xl border border-gray-300 w-36 h-36 shrink-0 flex items-center justify-center">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=130x130&data=https://whatsapp.com/channel/0029VbCtHdPKrWQpmxJi8v3E" alt="WhatsApp QR Code" class="w-full h-full" />
+                        <div class="absolute w-8 h-8 bg-green-500 rounded-full flex items-center justify-center border-2 border-white z-20">
+                            <i class="fab fa-whatsapp text-white text-xs"></i>
+                        </div>
+                    </div>
+
+                    <!-- Scan description -->
+                    <div class="text-left">
+                        <span class="text-xs text-brandRed font-black uppercase tracking-widest block mb-0.5">WhatsApp Channel</span>
+                        <h4 class="text-lg font-black text-black leading-tight uppercase">PW STUDENTS UNION</h4>
+                        <p class="text-xs text-gray-600 mt-1 mb-4">Scan the QR code or click below to connect with verified administrative portals instantly.</p>
+                        
+                        <a href="https://whatsapp.com/channel/0029VbCtHdPKrWQpmxJi8v3E" target="_blank" class="w-full inline-flex items-center justify-center gap-2 bg-brandYellow hover:bg-brandYellow/90 text-black font-black text-xs uppercase py-3 px-5 rounded-lg border-b-4 border-yellow-700 transition-all shadow-md">
+                            <i class="fab fa-whatsapp text-base"></i> Join Official Channel
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORE FEATURES SECTION (Crisp White Base with Red/Black Accent Cards) -->
+    <section id="features" class="py-16 px-4 max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="font-orbitron font-black text-3xl md:text-4xl text-black uppercase tracking-wider">
+                OUR CORE <span class="text-brandRed">FOUNDATIONS</span>
+            </h2>
+            <div class="h-1.5 w-24 bg-brandRed mx-auto mt-2"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- UNITED -->
+            <div class="bg-white border-2 border-brandRed/20 border-l-8 border-l-brandRed p-6 rounded-r-xl shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 rounded-full bg-brandRed text-white flex items-center justify-center text-xl">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-orbitron font-black text-lg text-black">UNITED</h3>
+                        <p class="text-xs text-brandRed font-black tracking-widest uppercase">WE STAND</p>
+                    </div>
+                </div>
+                <p class="text-gray-600 text-sm mt-3">An unbreakable bond of active students coming together to share perspectives and succeed simultaneously.</p>
+            </div>
+
+            <!-- GUIDED -->
+            <div class="bg-white border-2 border-brandRed/20 border-l-8 border-l-brandDark p-6 rounded-r-xl shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 rounded-full bg-brandDark text-white flex items-center justify-center text-xl">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-orbitron font-black text-lg text-black">GUIDED</h3>
+                        <p class="text-xs text-brandRed font-black tracking-widest uppercase">WE GROW</p>
+                    </div>
+                </div>
+                <p class="text-gray-600 text-sm mt-3">Mentorship-driven spaces mapping out study routines, test tactics, and advanced skill blueprints.</p>
+            </div>
+
+            <!-- TOGETHER -->
+            <div class="bg-white border-2 border-brandRed/20 border-l-8 border-l-brandRed p-6 rounded-r-xl shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 rounded-full bg-brandRed text-white flex items-center justify-center text-xl">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-orbitron font-black text-lg text-black">TOGETHER</h3>
+                        <p class="text-xs text-brandRed font-black tracking-widest uppercase">WE ACHIEVE</p>
+                    </div>
+                </div>
+                <p class="text-gray-600 text-sm mt-3">Setting big group goals, helping fellow members step up, and dominating competitive board results.</p>
+            </div>
+
+            <!-- KNOWLEDGE -->
+            <div class="bg-white border-2 border-brandRed/20 border-l-8 border-l-brandDark p-6 rounded-r-xl shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 rounded-full bg-brandDark text-white flex items-center justify-center text-xl">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-orbitron font-black text-lg text-black">KNOWLEDGE</h3>
+                        <p class="text-xs text-brandRed font-black tracking-widest uppercase">WE SHARE</p>
+                    </div>
+                </div>
+                <p class="text-gray-600 text-sm mt-3">Open files, daily summaries, cheat sheets, and custom-made reference tools created specifically by top students.</p>
+            </div>
+
+            <!-- SUPPORT -->
+            <div class="bg-white border-2 border-brandRed/20 border-l-8 border-l-brandRed p-6 rounded-r-xl shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 rounded-full bg-brandRed text-white flex items-center justify-center text-xl">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-orbitron font-black text-lg text-black">SUPPORT</h3>
+                        <p class="text-xs text-brandRed font-black tracking-widest uppercase">WE CARE</p>
+                    </div>
+                </div>
+                <p class="text-gray-600 text-sm mt-3">A welcoming, pressure-free space designed for handling academic stress, clearing doubts, and continuous growth.</p>
+            </div>
+
+            <!-- SUCCESS -->
+            <div class="bg-white border-2 border-brandRed/20 border-l-8 border-l-brandDark p-6 rounded-r-xl shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 rounded-full bg-brandDark text-white flex items-center justify-center text-xl">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-orbitron font-black text-lg text-black">SUCCESS</h3>
+                        <p class="text-xs text-brandRed font-black tracking-widest uppercase">WE BUILD</p>
+                    </div>
+                </div>
+                <p class="text-gray-600 text-sm mt-3">Gradually turning daily discipline into solid academic scores, professional coding skills, and career opportunities.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE HUB & PLAYGROUNDS (Contrasting Dark Panel) -->
+    <section id="playground" class="py-16 px-4 bg-brandDark text-white border-y-4 border-brandRed dots-grid-dark">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-10">
+                <span class="text-brandYellow text-xs font-black tracking-widest uppercase bg-brandYellow/10 py-1 px-3 rounded">WHAT YOU'LL GET & MORE</span>
+                <h2 class="font-orbitron font-black text-3xl md:text-5xl text-white uppercase mt-2">
+                    UNION INTERACTIVE <span class="text-brandRed">PORTAL</span>
+                </h2>
+                <p class="text-xs md:text-sm text-gray-400 max-w-2xl mx-auto mt-2">
+                    Interact directly with our functional hubs. Select a tab below to launch the respective module.
+                </p>
+            </div>
+
+            <!-- High Contrast Tab Menu -->
+            <div class="flex flex-wrap justify-center gap-2 mb-8 bg-black p-2 rounded-xl border border-gray-800 max-w-4xl mx-auto">
+                <button onclick="switchTab('coding')" id="btn-coding" class="tab-btn flex items-center gap-2 px-4 py-2.5 text-xs md:text-sm font-black uppercase tracking-wider rounded-lg transition-all bg-brandRed text-white">
+                    <i class="fas fa-code"></i> Coding
+                </button>
+                <button onclick="switchTab('games')" id="btn-games" class="tab-btn flex items-center gap-2 px-4 py-2.5 text-xs md:text-sm font-black uppercase tracking-wider rounded-lg transition-all text-gray-400 hover:text-white">
+                    <i class="fas fa-gamepad"></i> Games
+                </button>
+                <button onclick="switchTab('notes')" id="btn-notes" class="tab-btn flex items-center gap-2 px-4 py-2.5 text-xs md:text-sm font-black uppercase tracking-wider rounded-lg transition-all text-gray-400 hover:text-white">
+                    <i class="fas fa-book-open"></i> Notes
+                </button>
+                <button onclick="switchTab('quiz')" id="btn-quiz" class="tab-btn flex items-center gap-2 px-4 py-2.5 text-xs md:text-sm font-black uppercase tracking-wider rounded-lg transition-all text-gray-400 hover:text-white">
+                    <i class="fas fa-tasks"></i> Quiz Arena
+                </button>
+                <button onclick="switchTab('poll')" id="btn-poll" class="tab-btn flex items-center gap-2 px-4 py-2.5 text-xs md:text-sm font-black uppercase tracking-wider rounded-lg transition-all text-gray-400 hover:text-white">
+                    <i class="fas fa-poll"></i> Daily Poll
+                </button>
+            </div>
+
+            <!-- Tab Frames -->
+            <div class="max-w-4xl mx-auto bg-black border-2 border-brandRed rounded-2xl overflow-hidden shadow-2xl relative">
+                
+                <!-- Tab 1: Coding -->
+                <div id="tab-content-coding" class="tab-pane p-6 block">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-black text-brandYellow uppercase tracking-widest">Interactive Web Lab</span>
+                                <span class="bg-brandRed/20 text-brandRed text-[10px] font-black px-2 py-0.5 rounded">ONLINE</span>
+                            </div>
+                            <h3 class="font-orbitron font-bold text-xl text-white mb-2">Build Your Web Page</h3>
+                            <p class="text-gray-400 text-xs mb-4">Edit the HTML snippet below and see immediate interactive rendering. We support web development guides step-by-step!</p>
+                            
+                            <div class="bg-zinc-900 p-3 rounded-lg border border-zinc-800">
+                                <span class="text-[10px] text-gray-500 font-mono block mb-1">HTML Content:</span>
+                                <textarea id="coding-editor" rows="6" class="w-full bg-transparent text-green-400 font-mono text-xs focus:outline-none resize-none leading-relaxed" spellcheck="false">&lt;div class="p-4 text-center"&gt;
+  &lt;h1 class="text-xl font-bold text-red-500"&gt;Hello Union World!&lt;/h1&gt;
+  &lt;p class="text-gray-300 text-sm"&gt;The Original 45 Students Union has arrived.&lt;/p&gt;
+  &lt;button class="mt-2 bg-yellow-500 text-black px-4 py-1 text-xs rounded font-bold"&gt;PW Rocks!&lt;/button&gt;
+&lt;/div&gt;</textarea>
+                            </div>
+                            <button onclick="runCode()" class="mt-3 bg-brandYellow hover:bg-brandYellow/80 text-black font-black text-xs uppercase px-4 py-2 rounded">
+                                <i class="fas fa-play mr-1"></i> Run Output
+                            </button>
+                        </div>
+                        
+                        <!-- Mini Preview Output -->
+                        <div class="flex-1 flex flex-col">
+                            <span class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Output Screen:</span>
+                            <div class="flex-1 bg-white rounded-lg min-h-[180px] overflow-hidden flex items-center justify-center border-4 border-zinc-800" id="render-target">
+                                <div class="p-4 text-center">
+                                    <h1 class="text-xl font-bold text-red-500 text-black">Hello Union World!</h1>
+                                    <p class="text-gray-600 text-sm">The Original 45 Students Union has arrived.</p>
+                                    <button class="mt-2 bg-yellow-500 text-black px-4 py-1 text-xs rounded font-bold">PW Rocks!</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 2: Retro Arcade Game -->
+                <div id="tab-content-games" class="tab-pane p-6 hidden">
+                    <div class="text-center">
+                        <span class="text-xs font-black text-brandYellow uppercase tracking-widest">Union Retro Arcade</span>
+                        <h3 class="font-orbitron font-bold text-xl text-white mt-1 mb-2">PW Star Deflector</h3>
+                        <p class="text-gray-400 text-xs max-w-xl mx-auto mb-4">
+                            Click / Tap on the canvas to move the shield. Prevent the falling red spheres from passing through!
+                        </p>
+
+                        <div class="relative inline-block mx-auto">
+                            <canvas id="gameCanvas" width="400" height="260" class="bg-zinc-950 rounded-xl border-2 border-brandRed max-w-full block"></canvas>
+                            <div id="gameOverlay" class="absolute inset-0 bg-black/90 flex flex-col items-center justify-center rounded-xl p-4">
+                                <h4 class="text-brandRed font-orbitron font-black text-2xl uppercase tracking-wider">PW SHIELD ARCADIA</h4>
+                                <p class="text-xs text-gray-400 mb-4 text-center">Deflect elements to level up</p>
+                                <button onclick="startGame()" class="bg-brandYellow text-black font-black text-xs uppercase py-2.5 px-6 rounded-lg hover:scale-105 transition-all">
+                                    Start Playing
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-center gap-6 mt-3">
+                            <span class="text-xs text-gray-400">Score: <strong id="gameScore" class="text-brandYellow">0</strong></span>
+                            <span class="text-xs text-gray-400">High Score: <strong id="gameHighScore" class="text-brandRed">0</strong></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 3: Notes PDF Vault -->
+                <div id="tab-content-notes" class="tab-pane p-6 hidden">
+                    <div class="mb-4">
+                        <span class="text-xs font-black text-brandYellow uppercase tracking-widest">Academic Vault</span>
+                        <h3 class="font-orbitron font-bold text-xl text-white">Handwritten & PDF Notes</h3>
+                        <p class="text-gray-400 text-xs mt-1">Get authentic, neat, and verified resources instantly. Click "Get" to simulate download link acquisition.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-zinc-900/60 p-4 rounded-xl border border-zinc-800 hover:border-brandRed/40 transition-colors flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <div class="text-3xl text-brandRed"><i class="fas fa-file-pdf"></i></div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-white">Web Dev Checklist 2026</h4>
+                                    <p class="text-[10px] text-gray-500">PDF • 4.2 MB • Updated Daily</p>
+                                </div>
+                            </div>
+                            <button onclick="triggerDownload('Web Dev Checklist')" class="bg-brandRed hover:bg-brandRed/85 text-white text-[11px] font-black px-3 py-1.5 rounded-md uppercase">
+                                <i class="fas fa-download"></i> Get
+                            </button>
+                        </div>
+
+                        <div class="bg-zinc-900/60 p-4 rounded-xl border border-zinc-800 hover:border-brandYellow/40 transition-colors flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <div class="text-3xl text-brandYellow"><i class="fas fa-file-invoice"></i></div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-white">Fullstack Cheat Sheet</h4>
+                                    <p class="text-[10px] text-gray-500">HTML/JS • 1.8 MB • Fast Prep</p>
+                                </div>
+                            </div>
+                            <button onclick="triggerDownload('Fullstack Cheat Sheet')" class="bg-brandYellow hover:bg-brandYellow/85 text-black text-[11px] font-black px-3 py-1.5 rounded-md uppercase">
+                                <i class="fas fa-download"></i> Get
+                            </button>
+                        </div>
+                    </div>
+                    <div id="download-alert" class="hidden mt-4 p-2.5 bg-green-900/30 border border-green-500 text-green-400 text-center text-xs font-bold rounded"></div>
+                </div>
+
+                <!-- Tab 4: Interactive Quiz Arena -->
+                <div id="tab-content-quiz" class="tab-pane p-6 hidden">
+                    <span class="text-xs font-black text-brandYellow uppercase tracking-widest">Test Your Knowledge</span>
+                    <h3 class="font-orbitron font-bold text-xl text-white mb-2">Weekly Union Quiz</h3>
+                    <p class="text-xs text-gray-400 mb-6">Test yourself dynamically below. We reward top performance in the WhatsApp group daily!</p>
+
+                    <div id="quiz-container" class="bg-zinc-900/40 p-5 rounded-xl border border-zinc-800">
+                        <div id="quiz-question-box">
+                            <span class="text-[10px] bg-brandRed/20 text-brandRed font-black uppercase tracking-widest px-2.5 py-0.5 rounded" id="quiz-step">QUESTION 1 OF 3</span>
+                            <h4 class="text-base font-bold text-white mt-2 mb-4" id="quiz-question">Which programming language is predominantly used to add interactivity to standard web pages?</h4>
+                            
+                            <div class="space-y-2.5" id="quiz-options"></div>
+                        </div>
+
+                        <!-- Quiz End Screen -->
+                        <div id="quiz-result-box" class="hidden text-center py-6">
+                            <div class="w-16 h-16 rounded-full bg-brandYellow/10 text-brandYellow flex items-center justify-center text-2xl mx-auto mb-3">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <h4 class="text-xl font-orbitron font-extrabold text-white">QUIZ COMPLETE!</h4>
+                            <p class="text-sm text-gray-300 mt-2">You scored <span id="quiz-score" class="text-brandYellow font-bold">0</span> out of 3 questions.</p>
+                            <button onclick="resetQuiz()" class="mt-4 bg-brandRed hover:bg-brandRed/80 text-white text-xs font-bold py-2 px-4 rounded uppercase">
+                                Try Again
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 5: Opinion Poll -->
+                <div id="tab-content-poll" class="tab-pane p-6 hidden">
+                    <span class="text-xs font-black text-brandYellow uppercase tracking-widest">Voice Of The Union</span>
+                    <h3 class="font-orbitron font-bold text-xl text-white mb-2">Poll of the Day</h3>
+                    <p class="text-xs text-gray-400 mb-4">Cast your vote anonymously. Let's design the next set of competitive resources based on your needs!</p>
+
+                    <div class="bg-zinc-900/40 p-5 rounded-xl border border-zinc-800" id="poll-main">
+                        <h4 class="text-sm font-bold text-white mb-4">What field should we launch notes and code challenges for next?</h4>
+                        
+                        <div class="space-y-3">
+                            <button onclick="castVote('web')" class="w-full text-left bg-zinc-900 border border-zinc-800 hover:border-brandYellow/40 p-3 rounded-lg flex justify-between items-center transition-colors">
+                                <span class="text-xs font-bold text-white">React Native & App Dev</span>
+                                <span class="text-[10px] text-gray-500">Click to Vote</span>
+                            </button>
+                            <button onclick="castVote('ai')" class="w-full text-left bg-zinc-900 border border-zinc-800 hover:border-brandYellow/40 p-3 rounded-lg flex justify-between items-center transition-colors">
+                                <span class="text-xs font-bold text-white">Artificial Intelligence & Python Scripts</span>
+                                <span class="text-[10px] text-gray-500">Click to Vote</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Poll Result progress -->
+                    <div class="bg-zinc-900/40 p-5 rounded-xl border border-zinc-800 hidden" id="poll-results">
+                        <h4 class="text-sm font-bold text-white mb-4">Live Union Voting Results:</h4>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-xs text-gray-400 mb-1">
+                                    <span>React Native & App Dev</span>
+                                    <span id="pct-web" class="text-brandYellow font-bold">58%</span>
+                                </div>
+                                <div class="w-full bg-zinc-800 h-2 rounded-full overflow-hidden">
+                                    <div class="bg-brandYellow h-full transition-all duration-1000" id="bar-web" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs text-gray-400 mb-1">
+                                    <span>Artificial Intelligence & Python Scripts</span>
+                                    <span id="pct-ai" class="text-brandRed font-bold">42%</span>
+                                </div>
+                                <div class="w-full bg-zinc-800 h-2 rounded-full overflow-hidden">
+                                    <div class="bg-brandRed h-full transition-all duration-1000" id="bar-ai" style="width: 0%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button onclick="resetPoll()" class="mt-4 text-[10px] text-gray-400 uppercase tracking-widest hover:text-white transition-colors">
+                            <i class="fas fa-undo mr-1"></i> Reset Voting Simulator
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAMS SECTION (Matching the dark banner footer section in flyer) -->
+    <section id="teams" class="py-16 px-4 bg-brandDark text-white border-b-8 border-brandRed dots-grid-dark">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="text-brandRed text-xs font-black tracking-widest uppercase bg-brandRed/20 py-1.5 px-4 rounded-full border border-brandRed">COMPETE & CONQUER</span>
+                <h2 class="font-orbitron font-black text-3xl md:text-5xl text-white uppercase mt-2">
+                    TEAMS PW – <span class="text-brandYellow">TOGETHER WE WIN</span>
+                </h2>
+                <div class="h-1.5 w-24 bg-brandYellow mx-auto mt-2"></div>
+                <p class="text-gray-400 text-xs md:text-sm max-w-xl mx-auto mt-3">
+                    Align with a squad to host competitive hackathons and dominate syllabus trackers.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                <!-- Team Fire -->
+                <div class="bg-black border border-zinc-800 rounded-xl p-5 text-center transition-all hover:scale-105">
+                    <div class="w-12 h-12 rounded-full bg-brandRed/20 text-brandRed flex items-center justify-center text-2xl mx-auto mb-3">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h4 class="font-orbitron font-black text-sm md:text-base text-white">TEAM FIRE</h4>
+                    <p class="text-[10px] text-brandRed font-bold tracking-wider uppercase mt-1">PASSION & POWER</p>
+                </div>
+
+                <!-- Team Thunder -->
+                <div class="bg-black border border-zinc-800 rounded-xl p-5 text-center transition-all hover:scale-105">
+                    <div class="w-12 h-12 rounded-full bg-brandYellow/20 text-brandYellow flex items-center justify-center text-2xl mx-auto mb-3">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h4 class="font-orbitron font-black text-sm md:text-base text-white">TEAM THUNDER</h4>
+                    <p class="text-[10px] text-brandYellow font-bold tracking-wider uppercase mt-1">SPEED & STRENGTH</p>
+                </div>
+
+                <!-- Team Titan -->
+                <div class="bg-black border border-zinc-800 rounded-xl p-5 text-center transition-all hover:scale-105">
+                    <div class="w-12 h-12 rounded-full bg-brandRed/20 text-brandRed flex items-center justify-center text-2xl mx-auto mb-3">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4 class="font-orbitron font-black text-sm md:text-base text-white">TEAM TITAN</h4>
+                    <p class="text-[10px] text-brandRed font-bold tracking-wider uppercase mt-1">DISCIPLINE & FOCUS</p>
+                </div>
+
+                <!-- Team Phoenix -->
+                <div class="bg-black border border-zinc-800 rounded-xl p-5 text-center transition-all hover:scale-105">
+                    <div class="w-12 h-12 rounded-full bg-brandYellow/20 text-brandYellow flex items-center justify-center text-2xl mx-auto mb-3">
+                        <i class="fas fa-dove"></i>
+                    </div>
+                    <h4 class="font-orbitron font-black text-sm md:text-base text-white">TEAM PHOENIX</h4>
+                    <p class="text-[10px] text-brandYellow font-bold tracking-wider uppercase mt-1">RISE & INSPIRE</p>
+                </div>
+
+                <!-- Team Warriors -->
+                <div class="bg-black border border-zinc-800 rounded-xl p-5 text-center col-span-2 md:col-span-1 transition-all hover:scale-105">
+                    <div class="w-12 h-12 rounded-full bg-brandRed/20 text-brandRed flex items-center justify-center text-2xl mx-auto mb-3">
+                        <i class="fas fa-sword"></i>
+                    </div>
+                    <h4 class="font-orbitron font-black text-sm md:text-base text-white">TEAM WARRIORS</h4>
+                    <p class="text-[10px] text-brandRed font-bold tracking-wider uppercase mt-1">FIGHT & CONQUER</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UNION ROSTER (White-themed layout with custom user cards & 20 placeholders) -->
+    <section id="roster" class="py-16 px-4 bg-brandLight text-black dots-grid-light relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-10">
+                <span class="text-brandRed text-xs font-black tracking-widest uppercase bg-brandRed/10 py-1.5 px-4 rounded-full">THE ELITE ROSTER</span>
+                <h2 class="font-orbitron font-black text-3xl md:text-5xl text-black uppercase mt-3">
+                    UNION <span class="text-brandRed">ROSTER</span>
+                </h2>
+                <p class="text-xs md:text-sm text-gray-600 max-w-xl mx-auto mt-2">
+                    Meet the active leadership team followed by our 20 open member positions.
+                </p>
+            </div>
+
+            <!-- Grid containing Founders, Leads, and exactly 20 named placeholders -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                
+                <!-- 1. SHIVANSH KASHYAP (Founder & Owner) -->
+                <div class="glow-card-yellow bg-white border-2 border-brandYellow p-5 rounded-2xl flex flex-col justify-between shadow-sm relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-16 h-16 diagonal-stripe-black opacity-10"></div>
+                    <div>
+                        <div class="flex items-center space-x-3 mb-3">
+                            <div class="w-10 h-10 rounded-full bg-brandYellow text-black border border-black flex items-center justify-center text-base font-black font-orbitron">SK</div>
+                            <div>
+                                <h4 class="font-black text-sm text-black tracking-wide uppercase">SHIVANSH KASHYAP</h4>
+                                <span class="text-[10px] text-brandRed font-black uppercase tracking-widest">FOUNDER & OWNER</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-600 leading-relaxed">Supreme architect of PW Students Union. Directing community strategy, web portals, and expansion plans.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-[10px] text-gray-500 font-bold uppercase tracking-widest">
+                        <span>TEAM WARRIORS</span>
+                        <span class="text-brandYellow font-black">★ OWNER</span>
+                    </div>
+                </div>
+
+                <!-- 2. VIDYA (Co-Owner) -->
+                <div class="glow-card bg-white border-2 border-brandRed p-5 rounded-2xl flex flex-col justify-between shadow-sm relative overflow-hidden group">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-3">
+                            <div class="w-10 h-10 rounded-full bg-brandRed text-white flex items-center justify-center text-base font-black font-orbitron">V</div>
+                            <div>
+                                <h4 class="font-black text-sm text-black tracking-wide uppercase">VIDYA</h4>
+                                <span class="text-[10px] text-brandYellow bg-black px-1.5 py-0.5 rounded font-black tracking-widest text-xs">CO-OWNER</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-600 leading-relaxed">Pillar of operational workflow. Directing cross-platform resource curation and community welfare initiatives.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-[10px] text-gray-500 font-bold uppercase tracking-widest">
+                        <span>TEAM FIRE</span>
+                        <span class="text-brandRed font-black">CO-LEAD</span>
+                    </div>
+                </div>
+
+                <!-- 3. RAVI RANJAN (Technical Lead) -->
+                <div class="glow-card bg-white border-2 border-brandDark/20 p-5 rounded-2xl flex flex-col justify-between shadow-sm relative overflow-hidden group">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-3">
+                            <div class="w-10 h-10 rounded-full bg-brandDark text-white flex items-center justify-center text-base font-black font-orbitron">RR</div>
+                            <div>
+                                <h4 class="font-black text-sm text-black tracking-wide uppercase">RAVI RANJAN</h4>
+                                <span class="text-[10px] text-brandRed font-black uppercase tracking-widest">TECHNICAL LEAD</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-600 leading-relaxed">Directs tech pipelines, bot scripts, platform security, and backend notes server storage.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-[10px] text-gray-500 font-bold uppercase tracking-widest">
+                        <span>TEAM THUNDER</span>
+                        <span class="text-brandDark font-black">ADMIN</span>
+                    </div>
+                </div>
+
+                <!-- 4. DIKSHA (Community Manager) -->
+                <div class="glow-card bg-white border-2 border-brandDark/20 p-5 rounded-2xl flex flex-col justify-between shadow-sm relative overflow-hidden group">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-3">
+                            <div class="w-10 h-10 rounded-full bg-brandDark text-white flex items-center justify-center text-base font-black font-orbitron">D</div>
+                            <div>
+                                <h4 class="font-black text-sm text-black tracking-wide uppercase">DIKSHA</h4>
+                                <span class="text-[10px] text-brandRed font-black uppercase tracking-widest">COMMUNITY MANAGER</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-600 leading-relaxed">Resolving student disputes, managing interactive announcements, and coordinating study events.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-[10px] text-gray-500 font-bold uppercase tracking-widest">
+                        <span>TEAM PHOENIX</span>
+                        <span class="text-brandRed font-black">MOD</span>
+                    </div>
+                </div>
+
+                <!-- 5. AYUSH (Core Developer) -->
+                <div class="glow-card bg-white border-2 border-brandDark/20 p-5 rounded-2xl flex flex-col justify-between shadow-sm relative overflow-hidden group">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-3">
+                            <div class="w-10 h-10 rounded-full bg-brandDark text-white flex items-center justify-center text-base font-black font-orbitron">A</div>
+                            <div>
+                                <h4 class="font-black text-sm text-black tracking-wide uppercase">AYUSH</h4>
+                                <span class="text-[10px] text-brandYellow bg-black px-1.5 py-0.5 rounded font-black tracking-widest text-xs">CORE DEVELOPER</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-600 leading-relaxed">Building front-end web portals, responsive tools, and handling group's technical integration.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-[10px] text-gray-500 font-bold uppercase tracking-widest">
+                        <span>TEAM TITAN</span>
+                        <span class="text-brandDark font-black">DEV</span>
+                    </div>
+                </div>
+
+                <!-- ==================== 20 RESERVED UNION SLOTS (No prefilled names, clearly labeled) ==================== -->
+                
+                <!-- SLOT 01 -->
+                <div class="glow-card bg-brandGray/40 border-2 border-dashed border-gray-300 p-5 rounded-2xl flex flex-col justify-between group transition-all">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-3">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-xs font-black font-orbitron">01</div>
+                            <div>
+                                <h4 class="font-bold text-xs text-gray-400 tracking-wider uppercase">[ UNION MEMBER SLOT 01 ]</h4>
+                                <span class="text-[9px] bg-brandRed/10 text-brandRed px-2 py-0.5 rounded font-black tracking-widest uppercase animate-pulse">Assign Pending</span>
+                            </div>
+                        </div>
+                        <p class="text-[11px] text-gray-400 italic">This rank slot is open for active community builders, doubt solvers, and top scorers.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-200/60 flex items-center justify-between text-[10px] text-gray-400 font-bold uppercase tracking-widest">
+                        <span>UNASSIGNED</span>
+                        <span class="text-gray-300">#01</span>
+                    </div>
+                </div>
+
+                <!-- SLOT 02 -->
+                <div class="glow-card bg-brandGray/40 border-2 border-dashed border-gray-300 p-5 rounded-2xl flex flex-col justify-between group transition-all">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-3">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-xs font-black font-orbitron">02</div>
+                            <div>
+                                <h4 class="font-bold text-xs text-gray-400 tracking-wider uppercase">[ UNION MEMBER SLOT 02 ]</h4>
+                                <span class="text-[9px] bg-brandRed/10 text-brandRed px-2 py-0.5 rounded font-black tracking-widest uppercase">Assign Pending</span>
+                            </div>
+                        </div>
+                        <p class="text-[11px] text-gray-400 italic">This rank slot is open for active community builders, doubt solvers, and top scorers.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-200/60 flex items-center justify-between text-[10px] text-gray-400 font-bold uppercase tracking-widest">
+                        <span>UNASSIGNED</span>
+                        <span class="text-gray-300">#02</span>
+                    </div>
+                </div>
+
+                <!-- SLOT 03 -->
+                <div class="glow-card bg-brandGray/40 border-2 border-dashed border-gray-300 p-5 rounded-2xl flex flex-col justify-between group transition-all">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-3">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-xs font-black font-orbitron">03</div>
+                            <div>
+                                <h4 class="font-bold text-xs text-gray-400 tracking-wider uppercase">[ UNION MEMBER SLOT 03 ]</h4>
+                                <span class="text-[9px] bg-brandRed/10 text-brandRed px-2 py-0.5 rounded font-black tracking-widest uppercase">Assign Pending</span>
+                            </div>
+                        </div>
+                        <p class="text-[11px] text-gray-400 italic">This rank slot is open for active community builders, doubt solvers, and top scorers.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-200/60 flex items-center justify-between text-[10px] text-gray-400 font-bold uppercase tracking-widest">
+                        <span>UNASSIGNED</span>
+                        <span class="text-gray-300">#03</span>
+                    </div>
+                </div>
+
+                <!-- SLOT 04 -->
+                <div class="glow-card bg-brandGray/40 border-2 border-dashed border-gray-300 p-5 rounded-2xl flex flex-col justify-between group transition-all">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-3">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-xs font-black font-orbitron">04</div>
+                            <div>
+                                <h4 class="font-bold text-xs text-gray-400 tracking-wider uppercase">[ UNION MEMBER SLOT 04 ]</h4>
+                                <span class="text-[9px] bg-brandRed/10 text-brandRed px-2 py-0.5 rounded font-black tracking-widest uppercase">Assign Pending</span>
+                            </div>
+                        </div>
+                        <p class="text-[11px] text-gray-400 italic">This rank slot is open for active community builders, doubt solvers, and top scorers.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-200/60 flex items-center justify-between text-[10px] text-gray-400 font-bold uppercase tracking-widest">
+                        <span>UNASSIGNED</span>
+                        <span class="text-gray-300">#04</span>
+                    </div>
+                </div>
+
+                <!-- SLOT 05 -->
+                <div class="glow-card bg-brandGray/40 border-2 border-dashed border-gray-300 p-5 rounded-2xl flex flex-col justify-between group transition-all">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-3">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-xs font-black font-orbitron">05</div>
+                            <div>
+                                <h4 class="font-bold text-xs text-gray-400 tracking-wider uppercase">[ UNION MEMBER SLOT 05 ]</h4>
+                                <span class="text-[9px] bg-brandRed/10 text-brandRed px-2 py-0.5 rounded font-black tracking-widest uppercase">Assign Pending</span>
+                            </div>
+                        </div>
+                        <p class="text-[11px] text-gray-400 italic">This rank slot is open for active community builders, doubt solvers, and top scorers.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-200/60 flex items-center justify-between text-[10px] text-gray-400 font-bold uppercase tracking-widest">
+                        <span>UNASSIGNED</span>
+                        <span class="text-gray-300">#05</span>
+                    </div>
+                </div>
+
+                <!-- SLOT 06 -->
+                <div class="glow-card bg-brandGray/40 border-2 border-dashed border-gray-300 p-5 rounded-2xl flex flex-col justify-between group transition-all">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-3">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-xs font-black font-orbitron">06</div>
+                            <div>
+                                <h4 class="font-bold text-xs text-gray-400 tracking-wider uppercase">[ UNION MEMBER SLOT 06 ]</h4>
+                                <span class="text-[9px] bg-brandRed/10 text-brandRed px-2 py-0.5 rounded font-black tracking-widest uppercase">Assign Pending</span>
+                            </div>
+                        </div>
+                        <p class="text-[11px] text-gray-400 italic">This rank slot is open for active community builders, doubt solvers, and top scorers.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-200/60 flex items-center justify-between text-[10px] text-gray-400 font-bold uppercase tracking-widest">
+                        <span>UNASSIGNED</span>
+                        <span class="text-gray-300">#06</span>
+                    </div>
+                </div>
+
+                <!-- SLOT 07 -->
+                <div class="glow-card bg-brandGray/40 border-2 border-dashed border-gray-300 p-5 rounded-2xl flex flex-col justify-between group transition-all">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-3">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-xs font-black font-orbitron">07</div>
+                            <div>
+                                <h4 class="font-bold text-xs text-gray-400 tracking-wider uppercase">[ UNION MEMBER SLOT 07 ]</h4>
+                                <span class="text-[9px] bg-brandRed/10 text-brandRed px-2 py-0.5 rounded font-black tracking-widest uppercase">Assign Pending</span>
+                            </div>
+                        </div>
+                        <p class="text-[11px] text-gray-400 italic">This rank slot is open for active community builders, doubt solvers, and top scorers.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-200/60 flex items-center justify-between text-[10px] text-gray-400 font-bold uppercase tracking-widest">
+                        <span>UNASSIGNED</span>
+                        <span class="text-gray-300">#07</span>
+                    </div>
+                </div>
+
+                <!-- SLOT 08 -->
+                <div class="glow-card bg-brandGray/40 border-2 border-dashed border-gray-300 p-5 rounded-2xl flex flex-col justify-between group transition-all">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-3">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-xs font-black font-orbitron">08</div>
+                            <div>
+                                <h4 class="font-bold text-xs text-gray-400 tracking-wider uppercase">[ UNION MEMBER SLOT 08 ]</h4>
+                                <span class="text-[9px] bg-brandRed/10 text-brandRed px-2 py-0.5 rounded font-black tracking-widest uppercase">Assign Pending</span>
+                            </div>
+                        </div>
+                        <p class="text-[11px] text-gray-400 italic">This rank slot is open for active community builders, doubt solvers, and top scorers.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-200/60 flex items-center justify-between text-[10px] text-gray-400 font-bold uppercase tracking-widest">
+                        <span>UNASSIGNED</span>
+                        <span class="text-gray-300">#08</span>
+                    </div>
+                </div>
+
+                <!-- SLOT 09 -->
+                <div class="glow-card bg-brandGray/40 border-2 border-dashed border-gray-300 p-5 rounded-2xl flex flex-col justify-between group transition-all">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-3">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-xs font-black font-orbitron">09</div>
+                            <div>
+                                <h4 class="font-bold text-xs text-gray-400 tracking-wider uppercase">[ UNION MEMBER SLOT 09 ]</h4>
+                                <span class="text-[9px] bg-brandRed/10 text-brandRed px-2 py-0.5 rounded font-black tracking-widest uppercase">Assign Pending</span>
+                            </div>
+                        </div>
+                        <p class="text-[11px] text-gray-400 italic">This rank slot is open for active community builders, doubt solvers, and top scorers.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-200/60 flex items-center justify-between text-[10px] text-gray-400 font-bold uppercase tracking-widest">
+                        <span>UNASSIGNED</span>
+                        <span class="text-gray-300">#09</span>
+                    </div>
+                </div>
+
+                <!-- SLOT 10 -->
+                <div class="glow-card bg-brandGray/40 border-2 border-dashed border-gray-300 p-5 rounded-2xl flex flex-col justify-between group transition-all">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-3">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-xs font-black font-orbitron">10</div>
+                            <div>
+                                <h4 class="font-bold text-xs text-gray-400 tracking-wider uppercase">[ UNION MEMBER SLOT 10 ]</h4>
+                                <span class="text-[9px] bg-brandRed/10 text-brandRed px-2 py-0.5 rounded font-black tracking-widest uppercase">Assign Pending</span>
+                            </div>
+                        </div>
+                        <p class="text-[11px] text-gray-400 italic">This rank slot is open for active community builders, doubt solvers, and top scorers.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-200/60 flex items-center justify-between text-[10px] text-gray-400 font-bold uppercase tracking-widest">
+                        <span>UNASSIGNED</span>
+                        <span class="text-gray-300">#10</span>
+                    </div>
+                </div>
+
+                <!-- SLOT 11 -->
+                <div class="glow-card bg-brandGray/40 border-2 border-dashed border-gray-300 p-5 rounded-2xl flex flex-col justify-between group transition-all">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-3">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center text-xs font-black font-orbitron">11</div>
+                            <div>
+                                <h4 class="font-bold text-xs text-gray-400 tracking-wider uppercase">[ UNION MEMBER SLOT 11 ]</h4>
+                                <span class="text-[9px] bg-brandRed/10 text-brandRed px-2 py-0.5 rounded font-black tracking-widest uppercase">Assign Pending</span>
+                            </div>
+                        </div>
+                        <p class="text-[11px] text-gray-400 italic">This rank slot is open for active community builders, doubt solvers, and top scorers.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-200/60 flex items-center justify-between text-[10px] text-gray-400 font-bold uppercase tracking-widest">
+                        <span>UNASSIGNED</span>
+                        <span class="text-gray-300">#20</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- WHATSAPP FLOATING JOIN INVITATION BOX (At the bottom of the page content) -->
+    <section class="py-12 px-4 bg-brandDark text-white border-t-4 border-brandYellow relative overflow-hidden">
+        <div class="absolute inset-0 diagonal-stripe-red opacity-10 z-0"></div>
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <div class="inline-block p-4 rounded-full bg-brandRed/20 border-2 border-brandRed mb-4 animate-pulse">
+                <i class="fab fa-whatsapp text-4xl text-brandYellow"></i>
+            </div>
+            <h2 class="font-orbitron font-black text-2xl md:text-4xl text-white uppercase tracking-wider">
+                JOIN THE <span class="text-brandYellow">OFFICIAL</span> CHANNEL
+            </h2>
+            <p class="text-xs md:text-sm text-gray-400 max-w-xl mx-auto mt-2 mb-6">
+                Connect instantly with SHIVANSH KASHYAP and the rest of the leadership team. Access real-time notes, quizzes, and web dev templates as soon as they go live.
+            </p>
+            <a href="https://whatsapp.com/channel/0029VbCtHdPKrWQpmxJi8v3E" target="_blank" class="inline-flex items-center gap-3 bg-brandRed hover:bg-brandRed/90 text-white font-black font-orbitron text-sm uppercase py-4 px-8 rounded-xl border-b-4 border-red-800 transition-all transform hover:-translate-y-1 shadow-lg shadow-brandRed/40">
+                <i class="fab fa-whatsapp text-xl"></i> CLICK TO JOIN OFFICIAL CHANNEL
+            </a>
+        </div>
+    </section>
+
+    <!-- HORIZONTAL TICKER / MOTIVATIONAL BARS -->
+    <section class="bg-brandRed py-6 overflow-hidden relative">
+        <div class="absolute inset-0 diagonal-stripe-red opacity-20"></div>
+        <div class="whitespace-nowrap flex space-x-8 animate-[marquee_25s_linear_infinite] uppercase font-orbitron font-extrabold text-sm md:text-xl tracking-widest text-white relative z-10">
+            <span>• BE A PART OF THE MOVEMENT</span>
+            <span>• ONE UNION. ONE FAMILY. ONE FIGHT.</span>
+            <span>• SCAN. JOIN. GROW. WIN.</span>
+            <span>• PW STUDENTS UNION THE ORIGINAL 45</span>
+            <span>• DISCIPLINE • RESPECT • DETERMINATION • UNITY</span>
+            <span>• BE A PART OF THE MOVEMENT</span>
+            <span>• ONE UNION. ONE FAMILY. ONE FIGHT.</span>
+            <span>• SCAN. JOIN. GROW. WIN.</span>
+        </div>
+    </section>
+
+    <!-- FOOTER VALUE BADGES (Directly from flyer values bar) -->
+    <footer class="bg-black py-12 px-4 border-t-8 border-brandRed">
+        <div class="max-w-7xl mx-auto text-center">
+            
+            <div class="flex flex-wrap justify-center gap-4 md:gap-8 mb-8 text-xs font-orbitron font-black uppercase tracking-widest text-white">
+                <div class="bg-zinc-900 py-2.5 px-6 rounded-full border border-brandRed/40 flex items-center gap-2">
+                    <i class="fas fa-check-circle text-brandRed"></i> DISCIPLINE
+                </div>
+                <div class="bg-zinc-900 py-2.5 px-6 rounded-full border border-brandYellow/40 flex items-center gap-2">
+                    <i class="fas fa-handshake text-brandYellow"></i> RESPECT
+                </div>
+                <div class="bg-zinc-900 py-2.5 px-6 rounded-full border border-brandRed/40 flex items-center gap-2">
+                    <i class="fas fa-star text-brandRed"></i> DETERMINATION
+                </div>
+                <div class="bg-zinc-900 py-2.5 px-6 rounded-full border border-brandYellow/40 flex items-center gap-2">
+                    <i class="fas fa-users-cog text-brandYellow"></i> UNITY
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center text-white/60">
+                <div class="w-16 h-16 rounded-full border-4 border-brandYellow bg-zinc-900 flex items-center justify-center font-orbitron font-black text-2xl mb-4 text-white">
+                    P<span class="text-brandRed">W</span>
+                </div>
+                <p class="text-xs">© 2026 PW Students Union • All India Brotherhood. Created for The Original 45.</p>
+                <p class="text-[10px] text-gray-500 mt-1 uppercase tracking-widest">Designed for maximum academic & coding growth.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CSS Keyframe injection for marquee animation -->
+    <style>
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+    </style>
+
+    <!-- PLAYGROUND INTERACTION JAVASCRIPT -->
+    <script>
+        function switchTab(tabId) {
+            const panes = document.querySelectorAll('.tab-pane');
+            panes.forEach(p => p.classList.add('hidden'));
+            
+            document.getElementById('tab-content-' + tabId).classList.remove('hidden');
+
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(b => {
+                b.classList.remove('bg-brandRed', 'text-white');
+                b.classList.add('text-gray-400', 'hover:text-white');
+            });
+
+            const activeBtn = document.getElementById('btn-' + tabId);
+            activeBtn.classList.remove('text-gray-400', 'hover:text-white');
+            activeBtn.classList.add('bg-brandRed', 'text-white');
+
+            if (tabId === 'games') {
+                startGame();
+            }
+        }
+
+        // Web code compiler execution
+        function runCode() {
+            const editorText = document.getElementById('coding-editor').value;
+            const renderTarget = document.getElementById('render-target');
+            renderTarget.innerHTML = editorText;
+        }
+
+        // Academic notes vault simulate logic
+        function triggerDownload(fileName) {
+            const alertBox = document.getElementById('download-alert');
+            alertBox.classList.remove('hidden');
+            alertBox.innerText = `Preparing download link for: "${fileName}"...`;
+            
+            setTimeout(() => {
+                alertBox.innerHTML = `<i class="fas fa-check-circle text-green-400 mr-1"></i> "${fileName}" download initialized successfully! Redirecting to group vault...`;
+                setTimeout(() => {
+                    window.open('https://whatsapp.com/channel/0029VbCtHdPKrWQpmxJi8v3E', '_blank');
+                }, 1500);
+            }, 1000);
+        }
+
+        // Mini Star Deflector game engine
+        let canvas, ctx;
+        let gameActive = false;
+        let score = 0;
+        let highScore = 0;
+        let playerX = 175;
+        const playerWidth = 60;
+        const playerHeight = 10;
+        let stars = [];
+        let animationFrameId;
+
+        function startGame() {
+            canvas = document.getElementById('gameCanvas');
+            ctx = canvas.getContext('2d');
+            
+            canvas.addEventListener('mousemove', handleInput);
+            canvas.addEventListener('touchmove', handleTouch, { passive: false });
+
+            document.getElementById('gameOverlay').classList.add('hidden');
+            
+            gameActive = true;
+            score = 0;
+            document.getElementById('gameScore').innerText = score;
+            stars = [];
+            
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+            }
+            gameLoop();
+        }
+
+        function handleInput(e) {
+            const rect = canvas.getBoundingClientRect();
+            const rootX = e.clientX - rect.left;
+            playerX = rootX - (playerWidth / 2);
+            if (playerX < 0) playerX = 0;
+            if (playerX > canvas.width - playerWidth) playerX = canvas.width - playerWidth;
+        }
+
+        function handleTouch(e) {
+            e.preventDefault();
+            const rect = canvas.getBoundingClientRect();
+            const touch = e.touches[0];
+            const rootX = touch.clientX - rect.left;
+            playerX = rootX - (playerWidth / 2);
+            if (playerX < 0) playerX = 0;
+            if (playerX > canvas.width - playerWidth) playerX = canvas.width - playerWidth;
+        }
+
+        function spawnStar() {
+            if (Math.random() < 0.03) {
+                stars.push({
+                    x: Math.random() * (canvas.width - 15) + 5,
+                    y: 0,
+                    radius: 6,
+                    speed: 2 + Math.random() * 2
+                });
+            }
+        }
+
+        function gameLoop() {
+            if (!gameActive) return;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw Background grid lines
+            ctx.strokeStyle = 'rgba(255, 33, 52, 0.1)';
+            ctx.lineWidth = 1;
+            for (let i = 0; i < canvas.width; i += 30) {
+                ctx.beginPath();
+                ctx.moveTo(i, 0);
+                ctx.lineTo(i, canvas.height);
+                ctx.stroke();
+            }
+
+            // Draw paddle (Yellow)
+            ctx.fillStyle = '#facc15';
+            ctx.fillRect(playerX, canvas.height - 25, playerWidth, playerHeight);
+
+            // Spawning spheres (Red)
+            spawnStar();
+            for (let i = stars.length - 1; i >= 0; i--) {
+                const s = stars[i];
+                s.y += s.speed;
+
+                ctx.beginPath();
+                ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+                ctx.fillStyle = '#ff2134';
+                ctx.fill();
+
+                if (s.y >= (canvas.height - 25 - s.radius) && s.y <= (canvas.height - 15)) {
+                    if (s.x >= playerX && s.x <= (playerX + playerWidth)) {
+                        score += 10;
+                        document.getElementById('gameScore').innerText = score;
+                        stars.splice(i, 1);
+                        continue;
+                    }
+                }
+
+                if (s.y > canvas.height) {
+                    endGame();
+                    return;
+                }
+            }
+
+            animationFrameId = requestAnimationFrame(gameLoop);
+        }
+
+        function endGame() {
+            gameActive = false;
+            if (score > highScore) {
+                highScore = score;
+                document.getElementById('gameHighScore').innerText = highScore;
+            }
+            
+            const overlay = document.getElementById('gameOverlay');
+            overlay.innerHTML = `
+                <h4 class="text-brandRed font-orbitron font-black text-2xl uppercase tracking-wider">GAME OVER</h4>
+                <p class="text-xs text-gray-400 mb-2">You missed a sphere!</p>
+                <p class="text-sm text-brandYellow font-extrabold mb-4">Final Score: ${score}</p>
+                <button onclick="startGame()" class="bg-brandYellow text-black font-black text-xs uppercase py-2 px-6 rounded-lg hover:scale-105 transition-all">
+                    Restart Simulation
+                </button>
+            `;
+            overlay.classList.remove('hidden');
+        }
+
+        // Quiz Arena logic
+        const quizData = [
+            {
+                q: "Which programming language is predominantly used to add interactivity to standard web pages?",
+                a: ["Python", "JavaScript", "C++", "Kotlin"],
+                correct: 1
+            },
+            {
+                q: "What is the core slogan of the PW Students Union shown on our flyer?",
+                a: [
+                    "Knowledge is power, share always.",
+                    "One Union. One Family. One Fight.",
+                    "Study hard, play harder.",
+                    "Code daily, achieve highly."
+                ],
+                correct: 1
+            },
+            {
+                q: "Which official PW Team focuses primarily on 'DISCIPLINE & FOCUS'?",
+                a: ["Team Fire", "Team Thunder", "Team Titan", "Team Warriors"],
+                correct: 2
+            }
+        ];
+
+        let quizIndex = 0;
+        let quizScore = 0;
+
+        function loadQuizStep() {
+            const stepTitle = document.getElementById('quiz-step');
+            const questionText = document.getElementById('quiz-question');
+            const optionsBox = document.getElementById('quiz-options');
+
+            stepTitle.innerText = `QUESTION ${quizIndex + 1} OF ${quizData.length}`;
+            questionText.innerText = quizData[quizIndex].q;
+            optionsBox.innerHTML = '';
+
+            quizData[quizIndex].a.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left bg-zinc-900 border border-zinc-800 hover:border-brandRed/40 p-3 rounded-lg flex items-center justify-between text-xs font-bold text-gray-200 transition-colors";
+                btn.onclick = () => submitQuizAnswer(idx);
+                btn.innerHTML = `<span>${opt}</span> <i class="fas fa-chevron-right text-[10px] text-gray-600"></i>`;
+                optionsBox.appendChild(btn);
+            });
+        }
+
+        function submitQuizAnswer(selectedIdx) {
+            if (selectedIdx === quizData[quizIndex].correct) {
+                quizScore++;
+            }
+
+            quizIndex++;
+            if (quizIndex < quizData.length) {
+                loadQuizStep();
+            } else {
+                document.getElementById('quiz-question-box').classList.add('hidden');
+                document.getElementById('quiz-result-box').classList.remove('hidden');
+                document.getElementById('quiz-score').innerText = quizScore;
+            }
+        }
+
+        function resetQuiz() {
+            quizIndex = 0;
+            quizScore = 0;
+            document.getElementById('quiz-question-box').classList.remove('hidden');
+            document.getElementById('quiz-result-box').classList.add('hidden');
+            loadQuizStep();
+        }
+
+        loadQuizStep();
+
+        // Opinion poll simulation
+        function castVote(choice) {
+            document.getElementById('poll-main').classList.add('hidden');
+            document.getElementById('poll-results').classList.remove('hidden');
+
+            setTimeout(() => {
+                document.getElementById('bar-web').style.width = '58%';
+                document.getElementById('bar-ai').style.width = '42%';
+            }, 100);
+        }
+
+        function resetPoll() {
+            document.getElementById('bar-web').style.width = '0%';
+            document.getElementById('bar-ai').style.width = '0%';
+            document.getElementById('poll-main').classList.remove('hidden');
+            document.getElementById('poll-results').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
